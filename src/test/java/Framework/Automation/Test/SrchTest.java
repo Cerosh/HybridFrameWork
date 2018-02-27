@@ -11,29 +11,33 @@ import Framework.Automation.Pages.SrchAvlPage;
 import Framework.Automation.Pages.SrchRsltPage;
 
 public class SrchTest {
-	 Driver driver;
-	
+	Driver driver;
+
 	@Before
 	public void startUp() {
 		driver = new Driver("CHROME");
 	}
-	
+
 	@After
 	public void tearDown() {
 		driver.quit();
-		
+
 	}
+	
+
 	@Test
 	public void search() throws InterruptedException {
-	SrchAvlPage srchAvlPage = new SrchAvlPage(driver);
-	srchAvlPage.open();	
-	
-	srchAvlPage = srchAvlPage
-							.selTripType("ONEWAY")
-							.selDstn("Dubai", "London")
-							.selPsngr(1,0,2,2)
-							.selClass("ECONOMY")
-							.selDate(3,10);						
-	SrchRsltPage srchRslPage = srchAvlPage.clkSrch();
+		SrchAvlPage srchAvlPage = new SrchAvlPage(driver);
+		srchAvlPage.open();
+
+		srchAvlPage = srchAvlPage
+				.tripType().selTripType("ONEWAY")
+				.destinations().selDstn("Dubai", "London")
+				.passengers().selPsngr(1, 0, 2, 2)
+				.cabinCls().selClass("ECONOMY")
+				.trvlDate().selDate(3, 10);
+		SrchRsltPage srchRslPage = srchAvlPage
+				.clkSrchBtn().clkSrch();
+		
 	}
 }

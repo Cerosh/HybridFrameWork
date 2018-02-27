@@ -26,7 +26,8 @@ public class Driver implements WebDriver {
 		WebDriver driver;
 		switch (browserName.toUpperCase()) {
 		case "CHROME":
-			System.setProperty("webdriver.chrome.driver", "/Users/ceroshjacob/Downloads/PageObjectModel/Browserdrivers/chromedriver");	
+			System.setProperty("webdriver.chrome.driver",
+					"/Users/ceroshjacob/Downloads/PageObjectModel/Browserdrivers/chromedriver");
 			driver = new ChromeDriver();
 			break;
 		case "FIREFOX":
@@ -38,6 +39,7 @@ public class Driver implements WebDriver {
 		}
 		return driver;
 	}
+
 	public WebDriver wrappedDriver() {
 		return this.driver;
 	}
@@ -50,7 +52,7 @@ public class Driver implements WebDriver {
 
 	@Override
 	public WebElement findElement(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver,45);
+		WebDriverWait wait = new WebDriverWait(this.driver, 25);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		return element;
 	}
@@ -63,10 +65,10 @@ public class Driver implements WebDriver {
 	@Override
 	public void get(String LocatorAndURL) {
 		String splitter = "https";
-		String[] LocatorAndURLArray=	LocatorAndURL.split(splitter);
+		String[] LocatorAndURLArray = LocatorAndURL.split(splitter);
 		String Locator = LocatorAndURLArray[0];
-		String URL = splitter+LocatorAndURLArray[1];
-		 final By FEEDBACKBAR = By.xpath(Locator);
+		String URL = splitter + LocatorAndURLArray[1];
+		final By FEEDBACKBAR = By.xpath(Locator);
 		driver.get(URL);
 		new WebDriverWait(this.driver, 50).until(ExpectedConditions.visibilityOfElementLocated(FEEDBACKBAR));
 	}
@@ -116,7 +118,5 @@ public class Driver implements WebDriver {
 	public TargetLocator switchTo() {
 		return driver.switchTo();
 	}
-
-	
 
 }
