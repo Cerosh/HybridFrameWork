@@ -7,6 +7,7 @@ import Framework.Automation.Test.Driver;
 
 public class TripType {
 	private final Driver driver;
+
 	private final By RETURN_LOCATOR = By.cssSelector("md-tab-item[aria-controls='tab-content-0']");
 	private final By ONEWAY_LOCATOR = By.cssSelector("md-tab-item[aria-controls='tab-content-1']");
 	private final By MULTICITY_LOCATOR = By.cssSelector("md-tab-item[aria-controls='tab-content-2']");
@@ -24,7 +25,7 @@ public class TripType {
 			returnTab.click();
 			break;
 
-		case "ONEWAY":
+		case "ONE WAY":
 			WebElement oneWayTab = driver.findElement(ONEWAY_LOCATOR);
 			oneWayTab.click();
 			break;

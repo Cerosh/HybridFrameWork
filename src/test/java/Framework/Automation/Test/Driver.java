@@ -52,7 +52,7 @@ public class Driver implements WebDriver {
 
 	@Override
 	public WebElement findElement(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver, 25);
+		WebDriverWait wait = new WebDriverWait(this.driver, 50);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		return element;
 	}
@@ -64,11 +64,12 @@ public class Driver implements WebDriver {
 
 	@Override
 	public void get(String LocatorAndURL) {
+		
 		String splitter = "https";
 		String[] LocatorAndURLArray = LocatorAndURL.split(splitter);
 		String Locator = LocatorAndURLArray[0];
 		String URL = splitter + LocatorAndURLArray[1];
-		final By FEEDBACKBAR = By.xpath(Locator);
+		final By FEEDBACKBAR = By.xpath(Locator);	
 		driver.get(URL);
 		new WebDriverWait(this.driver, 50).until(ExpectedConditions.visibilityOfElementLocated(FEEDBACKBAR));
 	}

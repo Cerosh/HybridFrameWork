@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import Framework.Automation.Test.Driver;
 
 public class Destinations {
+	
 	Driver driver;
 	private final By DEPARTURE_LOCATOR = By.name("departureReturnOne");
 	private final By DEPARTURE_CONTAINER = By.xpath(
