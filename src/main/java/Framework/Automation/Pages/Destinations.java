@@ -33,13 +33,15 @@ public class Destinations {
 		WebElement DepartureContainer = driver.findElement(DEPARTURE_CONTAINER);
 		String Departure = DepartureContainer.getText();
 		System.out.println(Departure);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		WebElement ArrivalTxtBox = driver.findElement(ARRIVAL_LOCATOR);
 		ArrivalTxtBox.click();
 		WebElement SrchArprtToTxtBox = driver.findElement(SRCHARPRT_TO_LOCATOR);
 		SrchArprtToTxtBox.click();
+		Thread.sleep(2000);
 		SrchArprtToTxtBox.sendKeys(arrival);
 		WebElement SrchArprtToLst = driver.findElement(SRCHARPRT_TO_LST_LOCATOR);
+		Thread.sleep(2000);
 		SrchArprtToLst.click();
 		Thread.sleep(1000);
 		return new SrchAvlPage(this.driver);
